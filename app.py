@@ -1,10 +1,13 @@
-from flask import Flask, redirect
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Frontend route
 @app.route('/')
-def hello_world():
-    return redirect('https://oss-frontend.onrender.com')
+def index():
+    frontend_link = 'https://oss-frontend.onrender.com'
+    backend_link = 'https://oss-project.onrender.com'
+    return render_template('index.html', frontend_link=frontend_link, backend_link=backend_link)
 
 if __name__ == '__main__':
     app.run()
